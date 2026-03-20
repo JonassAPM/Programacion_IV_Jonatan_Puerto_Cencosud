@@ -5,19 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cencosud - Institucional</title>
-    <!-- vinculamos el css de la carpeta css -->
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- La barra estatica de arriba de todo -->
     <div id="barra-superior">
         <img src="imagenes/Cencosud_logo.png" alt="Logo Cencosud" id="logo-en-barra">
     </div>
-
-    <!-- Menu de navegacion de la izquierda -->
     <div id="menu-lateral">
         <a href="index.html" class="boton-menu activo" title="Inicio">
             <svg viewBox="0 0 24 24">
@@ -37,28 +32,20 @@
             </svg>
         </a>
     </div>
-
-    <!-- Div principal donde va toda la pagina -->
     <div id="contenedor-principal">
-
-        <!-- Cabecera de la pagina con imagen -->
         <div id="cabecera">
             <div id="texto-cabecera">
                 <h1>Cencosud</h1>
                 <p>Mejorando la calidad de vida de nuestros clientes en toda latinoamérica.</p>
             </div>
-            <!-- Esta es la imagen del supermercado -->
             <div id="caja-imagen">
                 <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
                     alt="Supermercado Institucional Cencosud" id="imagen-principal">
             </div>
         </div>
-
-        <!-- Seccion para las noticias recientes -->
         <div class="seccion-noticias">
             <div class="titulo-noticias">
                 <h2>Sección de noticias</h2>
-                <!-- Audio corporativo provisto con interfaz mejorada -->
                 <div class="reproductor-custom">
                     <button id="boton-play" title="Reproducir audio">▶</button>
                     <div class="contenedor-barra" id="zona-click-barra" title="Adelantar o atrasar">
@@ -66,10 +53,8 @@
                     </div>
                     <span id="tiempo-audio">0:00</span>
                 </div>
-                <!-- Reproductor oculto original -->
                 <audio id="audio-cencosud" src="Nuevo Jingle Corporativo Tarjeta Cencosud Scotiabank - MIRA 360.mp3"></audio>
             </div>
-            <!-- Lista de noticias en español -->
             <div id="lista-de-noticias">
                 <div class="noticia">
                     <p>Scotiabank Cencosud lanza la nueva tarjeta MIRA 360 con beneficios exclusivos y acumulación acelerada de puntos en supermercados Jumbo y Metro.</p>
@@ -85,8 +70,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- El formulario intermedio inspirado en el mockup -->
         <div id="formulario-index">
             <h3>Formulario de contacto</h3>
             <form action="#" method="POST">
@@ -106,23 +89,17 @@
                 <button type="button">Enviar</button>
             </form>
         </div>
-
-        <!-- Div para poner el video y el mapa juntos -->
         <div id="seccion-multimedia">
             <div class="caja-video">
-                <!-- ifranme del video -->
                 <iframe src="https://www.youtube.com/embed/DZVf7i4AOfk" title="Video de Cencosud" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>
             <div class="caja-mapa">
-                <!-- iframe de google maps para la ubicacion -->
                 <iframe src="https://maps.google.com/maps?q=Cencosud%20Colombia&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
-
-        <!-- El pie de pagina que va abajo -->
         <div id="pie-de-pagina">
             <div class="texto-footer">
                 <p>Página web realizada para fines netamente académicos por: Jonatan Puerto &copy; 2026</p>
@@ -149,8 +126,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Funcionalidad del reproductor de audio -->
     <script>
         var miAudio = document.getElementById("audio-cencosud");
         var btnPlay = document.getElementById("boton-play");
@@ -158,23 +133,20 @@
         var textoTiempo = document.getElementById("tiempo-audio");
         var zonaClick = document.getElementById("zona-click-barra");
 
-        // Al darle click a play o pausa
         btnPlay.onclick = function() {
             if (miAudio.paused) {
                 miAudio.play();
-                btnPlay.innerHTML = "⏸"; // Cambia al icono de pausa
+                btnPlay.innerHTML = "⏸";
             } else {
                 miAudio.pause();
-                btnPlay.innerHTML = "▶"; // Cambia al icono de play
+                btnPlay.innerHTML = "▶";
             }
         };
 
-        // Mientras el audio avanza
         miAudio.ontimeupdate = function() {
             var porcentaje = (miAudio.currentTime / miAudio.duration) * 100;
             barraP.style.width = porcentaje + "%";
 
-            // Calcular minutos y segundos con matematica basica
             var mins = Math.floor(miAudio.currentTime / 60);
             var secs = Math.floor(miAudio.currentTime % 60);
             if (secs < 10) {
@@ -183,7 +155,6 @@
             textoTiempo.innerHTML = mins + ":" + secs;
         };
 
-        // Si hago click en la barrita gris, adelanta la cancion
         zonaClick.onclick = function(e) {
             var rect = zonaClick.getBoundingClientRect();
             var clickX = e.clientX - rect.left;

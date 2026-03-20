@@ -248,6 +248,55 @@ body {
     height: 100%;
 }
 
+/* Formulario especifico para el index */
+#formulario-index {
+    background-color: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+#formulario-index h3 {
+    color: #333333;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+#formulario-index label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+#formulario-index input, #formulario-index select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+#formulario-index button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0054a6; /* Azul Cencosud */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#formulario-index button:hover {
+    background-color: #003b75;
+}
+
 /* Pie de pagina gris */
 #pie-de-pagina {
     display: flex;

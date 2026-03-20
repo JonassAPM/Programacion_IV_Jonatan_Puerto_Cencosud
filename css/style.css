@@ -1,0 +1,462 @@
+/* Quitar los margenes por defecto a todo*/
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Estilos de la pagina entera */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333333;
+    line-height: 1.5;
+}
+
+/* Barra de arriba estatica (fija) */
+#barra-superior {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    border-bottom: 2px solid #0054a6;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#logo-en-barra {
+    height: 40px;
+}
+
+/* La barra de la izquierda */
+#menu-lateral {
+    position: fixed;
+    top: 70px;
+    left: 0px;
+    height: 100vh;
+    width: 80px;
+    background-color: #ffffff;
+    display: flex; /* Para centrar los botones */
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    box-shadow: 2px 0px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Los botones redondos del menu */
+.boton-menu {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    background-color: #0054a6; /* Color azul cencosud */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* El icono dentro del boton */
+.boton-menu svg {
+    width: 24px;
+    height: 24px;
+    fill: #ffffff;
+}
+
+/* Cuando paso el mouse por el boton */
+.boton-menu:hover {
+    background-color: #68a3df;
+    transform: scale(1.1);
+}
+
+.activo {
+    background-color: #68a3df;
+    transform: scale(1.1);
+}
+
+/* Div donde meto todo menos el menu */
+#contenedor-principal {
+    margin-left: 80px; /* Para que no se tape con el menu */
+    margin-top: 70px; /* Para que no se tape con la barra de arriba */
+    padding: 30px 5%;
+    max-width: 1400px;
+}
+
+/* Cabecera con la foto del supermercado */
+#cabecera {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+}
+
+#caja-imagen {
+    width: 100%;
+    height: 400px;
+}
+
+#imagen-principal {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#texto-cabecera {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    background-color: rgba(0, 84, 166, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+#texto-cabecera .logo-cabecera {
+    max-width: 250px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+#texto-cabecera h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+#texto-cabecera p {
+    font-size: 18px;
+}
+
+/* Caja de noticias blancas */
+.seccion-noticias {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.titulo-noticias {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0054a6;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.titulo-noticias h2 {
+    color: #0054a6;
+    font-size: 28px;
+}
+
+/* Reproductor de audio mejorado (Estudiante) */
+.reproductor-custom {
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+#boton-play {
+    background-color: #0054a6;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-barra {
+    flex-grow: 1;
+    background-color: #dddddd;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+#barra-progreso {
+    background-color: #0054a6;
+    height: 100%;
+    width: 0%;
+}
+
+#tiempo-audio {
+    margin-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #0054a6;
+}
+
+/* Acomodar noticias como cuadritos */
+#lista-de-noticias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Cada cuadrito de noticia */
+.noticia {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #0054a6;
+}
+
+.noticia p {
+    font-size: 14px;
+    color: #555555;
+    text-align: justify;
+}
+
+/* Video y mapa en grid de dos columnas */
+#seccion-multimedia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.caja-video, .caja-mapa {
+    height: 350px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.caja-video iframe, .caja-mapa iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* Pie de pagina gris */
+#pie-de-pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.texto-footer p {
+    color: #0054a6;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Circulos de redes sociales para el pie de pagina */
+#div-redes-sociales {
+    display: flex;
+    gap: 20px;
+}
+
+#div-redes-sociales a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #68a3df;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+#div-redes-sociales a:hover {
+    background-color: #0054a6;
+}
+
+#div-redes-sociales svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+}
+
+/*======================================================
+  Estilos para la pagina de SERVICIOS
+========================================================*/
+#cabecera-servicios {
+    background-color: #0054a6;
+    color: #ffffff;
+    padding: 50px 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#cuadricula-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tarjeta-servicio {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.05); /* sombrita */
+}
+
+.foto-servicio {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info-servicio {
+    padding: 20px;
+}
+
+.titulo-con-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.titulo-con-logo .logo-pequeno {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.info-servicio h3 {
+    color: #0054a6;
+    margin-bottom: 0px; /* el margen lo pone el contenedor flex */
+}
+
+.info-servicio p {
+    color: #555555;
+    font-size: 15px;
+}
+
+/*======================================================
+  Estilos para la pagina de CONTACTO
+========================================================*/
+#seccion-contacto {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0px auto 40px auto;
+}
+
+#seccion-contacto h2 {
+    color: #0054a6;
+    margin-bottom: 30px;
+    font-size: 30px;
+    border-bottom: 2px solid #0054a6;
+    padding-bottom: 10px;
+}
+
+#formulario-estudiante {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+}
+
+.fila-completa {
+    grid-column: 1 / 3;
+}
+
+.form-grupo label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444444;
+}
+
+.form-grupo input, .form-grupo select {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Boton verde para enviar el formulario */
+#boton-enviar {
+    grid-column: 1 / 3;
+    background-color: #5cb85c;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#boton-enviar:hover {
+    background-color: #4cae4c;
+}
+
+/* Para resoluciones más pequeñas (adaptabilidad) */
+@media (max-width: 900px) {
+    #seccion-multimedia {
+        grid-template-columns: 1fr; /* que se ponga de 1 sola columna en pantallas chiquitas */
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-lateral {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-around;
+        padding-top: 0px;
+        bottom: 0px;
+        top: auto;
+    }
+    .boton-menu {
+        margin-bottom: 0px;
+        width: 40px;
+        height: 40px;
+    }
+    #contenedor-principal {
+        margin-left: 0px;
+        margin-bottom: 70px;
+        padding: 15px;
+    }
+    #texto-cabecera {
+        position: static;
+        max-width: 100%;
+        border-radius: 0px;
+    }
+    #caja-imagen {
+        height: 250px;
+    }
+    .titulo-noticias {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #formulario-estudiante {
+        grid-template-columns: 1fr;
+    }
+    .fila-completa, #boton-enviar {
+        grid-column: 1 / 2;
+    }
+}
